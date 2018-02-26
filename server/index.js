@@ -8,6 +8,7 @@ const massive = require("massive");
 const test = require("../server/controllers/test");
 const Auth0Strategy = require("passport-auth0");
 const path = require("path");
+
 const port = process.env.PORT || 3001;
 
 const app = express();
@@ -17,7 +18,10 @@ const {
   DOMAIN,
   CLIENT_ID,
   CLIENT_SECRET,
-  SESSION_SECRET
+  SESSION_SECRET,
+  PAYMENT_SERVER_URL,
+  STRIPE_PLUBLISHABLE,
+  sk_test_MT_SECRET_KEY
 } = process.env;
 
 massive(process.env.CONNECTION_STRING).then(db => {
@@ -50,7 +54,6 @@ passport.use(
       callbackURL: "/Auth"
     },
     (accessToken, resfreshToken, extraParams, profile, done) => {
-      console.log("profile", profile);
       app
         .get("db")
         .getUserByAuthId(profile.id)
@@ -73,17 +76,21 @@ passport.use(
   )
 );
 
-passport.serializeUser((user, done) => done(null, user));
+passport.serializeUser((user, done) => {
+  console.log(user);
+  done(null, user);
+});
 passport.deserializeUser((user, done) => done(null, user));
 
 app.get(
   "/Auth",
   passport.authenticate("auth0", {
-    falureRedirect: "http://localhost:3000/Auth"
-  }),
-  (req, res) => {
-    res.redirect(`http://localhost:3000/UserInfo/${req.user.username}`);
-  } // create endpoint
+    successRedirect: "http://localhost:3000/Cart",
+    failureRedirect: "http://localhost:3000/Auth"
+  })
+  // (req, res) => {
+  //   res.redirect(`http://localhost:3000/UserInfo/${req.user.username}`);
+  // } // create endpoint
 );
 
 app.get("/api/Home", (req, res) => {
@@ -94,8 +101,14 @@ app.get("/api/Home", (req, res) => {
 });
 
 //frount end talking
-app.get("/api/test", test.test);
-
+app.get("/api/Cart", (req, res) => {
+  req.app
+    .get("db")
+    .getUserCart([req.user.id])
+    .then(response => {
+      res.status(200).json(response);
+    });
+});
 //db testing
 
 app.get(`/api/dbtest`, (req, res) => {
