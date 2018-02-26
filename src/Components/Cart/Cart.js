@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 class Cart extends Component {
   render() {
     return (
@@ -18,6 +19,11 @@ class Cart extends Component {
         </ul>
 
         <div />
+
+        <p> Total: </p>
+        <Link to="/Checkout">
+          <button> Checkout </button>
+        </Link>
       </div>
     );
   }

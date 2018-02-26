@@ -82,7 +82,7 @@ app.get(
     falureRedirect: "http://localhost:3000/Auth"
   }),
   (req, res) => {
-    res.redirect(`http://localhost:3000/userinfo/${req.user.username}`);
+    res.redirect(`http://localhost:3000/UserInfo/${req.user.username}`);
   } // create endpoint
 );
 
