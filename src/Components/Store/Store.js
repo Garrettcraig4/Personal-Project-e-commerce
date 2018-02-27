@@ -4,8 +4,19 @@ import { connect } from "react-redux";
 import { getProducts } from "../../ducks/getProducts";
 
 class Store extends Component {
+  constructor(props) {
+    super(props);
+    this.handelClick = this.handelClick.bind(this);
+  }
   componentDidMount() {
     this.props.getProducts();
+  }
+
+  handelClick(product) {
+    console.log(product, "adfadfadsfasdfadsfafff");
+    axios.post(`/api/addtocart`, { product }).then(results => {
+      console.log(results.data, "onclcikc");
+    });
   }
 
   render() {
@@ -26,8 +37,10 @@ class Store extends Component {
                 <img src={products.productimageurl} />
                 <li>{products.productdescription}</li>
                 <li>{`$${products.productprice}`}</li>
-                <button onClick={() => console.log(this.props.products[i])}>
-                  add to cart{" "}
+                <button
+                  onClick={() => this.handelClick(this.props.products[i])}
+                >
+                  add to cart
                 </button>
               </div>
             ))}

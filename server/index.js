@@ -112,6 +112,17 @@ app.get("/api/Cart", (req, res) => {
     });
 });
 
+app.post(`/api/addtocart`, (req, res) => {
+  console.log(req.body.product);
+  req.app
+    .get("db")
+    .addProductToUserCart([req.user.id, req.body.product.id])
+    .then(response => {
+      res.status(200).json(response);
+    })
+    .catch(err => console.log("dsafsdf", err));
+});
+
 //--------------------stripe------------
 
 const configureStripe = require("stripe");
@@ -138,15 +149,6 @@ app.post("/api/Pay", (req, res) => {
 //   });
 
 //-------------------stripe---------------
-
-app.get(`/api/dbtest`, (req, res) => {
-  req.app
-    .get("db")
-    .getUser()
-    .then(response => {
-      res.status(200).json(response);
-    });
-});
 
 app.listen(port, () => {
   console.log(`server is listening on port  ${port}`);
