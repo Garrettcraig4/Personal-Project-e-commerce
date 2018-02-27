@@ -40,7 +40,7 @@ app.use(
     }
   })
 );
-
+//----------------------auth0-------------
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -92,15 +92,17 @@ app.get(
   //   res.redirect(`http://localhost:3000/UserInfo/${req.user.username}`);
   // } // create endpoint
 );
-
-app.get("/api/Home", (req, res) => {
-  if (req.user) res.status(200).json(req.user);
-  else {
-    res.status(500).json({ message: "You need to Login to do that!" });
-  }
+//----------------auth0----------------
+app.get("/api/Products", (req, res) => {
+  console.log(req, "this is products request");
+  req.app
+    .get("db")
+    .getProductList([req.products])
+    .then(response => {
+      res.status(200).json(response);
+    });
 });
 
-//frount end talking
 app.get("/api/Cart", (req, res) => {
   req.app
     .get("db")
