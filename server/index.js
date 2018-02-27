@@ -111,6 +111,33 @@ app.get("/api/Cart", (req, res) => {
 });
 //db testing
 
+//--------------------stripe------------
+
+const configureStripe = require("stripe");
+
+const stripe = configureStripe(sk_test_MT_SECRET_KEY);
+
+const postStripeCharge = res => (stripeErr, stripeRes) => {
+  if (stripeErr) {
+    res.status(500).send({ error: stripeErr });
+  } else {
+    res.status(200).send({ success: stripeRes });
+  }
+};
+app.post("/api/Pay", (req, res) => {
+  console.log("hit the server");
+  stripe.charges.create(req.body, postStripeCharge(res));
+});
+// const paymentApi = app => {
+//   app.get("/api/Pay", (req, res) => {
+//     res.send({
+//       message: "Hello Stripe checkout server!",
+//       timestamp: new Date().toISOString()
+//     });
+//   });
+
+//-------------------stripe---------------
+
 app.get(`/api/dbtest`, (req, res) => {
   req.app
     .get("db")

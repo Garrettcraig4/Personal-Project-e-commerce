@@ -4,7 +4,7 @@ import Home from "./Components/Home/Home";
 import Header from "./Components/Header/Header";
 import { Link } from "react-router-dom";
 import routes from "./routes";
-// import Order from "./Components/Order/Order";
+import Order from "./Components/Order/Order";
 class App extends Component {
   render() {
     return (

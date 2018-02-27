@@ -1,2 +1,2 @@
 SELECT *
-FROM productlist;
+FROM products;

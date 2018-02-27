@@ -26,7 +26,7 @@ class Cart extends Component {
               <div key={i} className="list-item">
                 <li>{cart.id && cart.productname}</li>
                 <li>{cart.description}</li>
-                <li>{cart.productprice}</li>
+                <li>{`$${cart.productprice}`}</li>
               </div>
             ))}
         </ul>
