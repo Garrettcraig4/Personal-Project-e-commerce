@@ -2,23 +2,34 @@ import React, { Component } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { getUserCart } from "../../ducks/cart";
+
 class Cart extends Component {
+  componentDidMount() {
+    // axios.get(`/api/Cart`).then(results => {
+    //   console.log(results, "sdfsdfsdfsdfsfsdfsdfsdfsdfsdf");
+    //   this.setState({
+    //     incart: results.data
+    //   });
+    // });
+    this.props.getUserCart();
+  }
   render() {
+    // console.log(this.props.cart);
     return (
       <div className="Cart">
         <h1> WELCOME TO YOUR CART </h1>
 
         <ul>
-          {this.props.incart.map((cart, i) => {
-            return (
+          {this.props.cart.length > 0 &&
+            this.props.cart.map((cart, i) => (
               <div key={i} className="list-item">
-                <li>{cart}</li>
+                <li>{cart.id && cart.productname}</li>
+                <li>{cart.description}</li>
+                <li>{cart.productprice}</li>
               </div>
-            );
-          })}
+            ))}
         </ul>
-
-        <div />
 
         <p> Total: </p>
         <Link to="/Checkout">
@@ -31,8 +42,8 @@ class Cart extends Component {
 
 function mapStateToProps(state) {
   return {
-    incart: state.cart
+    cart: state.cart
   };
 }
 
-export default connect(mapStateToProps)(Cart);
+export default connect(mapStateToProps, { getUserCart })(Cart);
