@@ -111,7 +111,6 @@ app.get("/api/Cart", (req, res) => {
       res.status(200).json(response);
     });
 });
-//db testing
 
 //--------------------stripe------------
 

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import "./Cart.css";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { getUserCart } from "../../ducks/cart";
@@ -26,6 +27,7 @@ class Cart extends Component {
               <div key={i} className="list-item">
                 <li>{cart.id && cart.productname}</li>
                 <li>{cart.description}</li>
+                <img src={cart.productimageurl} />
                 <li>{`$${cart.productprice}`}</li>
               </div>
             ))}

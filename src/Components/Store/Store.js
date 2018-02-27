@@ -2,12 +2,15 @@ import React, { Component } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 import { getProducts } from "../../ducks/getProducts";
+
 class Store extends Component {
   componentDidMount() {
     this.props.getProducts();
   }
 
   render() {
+    console.log(this.props.products);
+
     return (
       <div className="Store">
         {/* <p>
@@ -23,6 +26,9 @@ class Store extends Component {
                 <img src={products.productimageurl} />
                 <li>{products.productdescription}</li>
                 <li>{`$${products.productprice}`}</li>
+                <button onClick={() => console.log(this.props.products[i])}>
+                  add to cart{" "}
+                </button>
               </div>
             ))}
         </ul>
