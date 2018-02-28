@@ -6,15 +6,22 @@ import { Link } from "react-router-dom";
 import { getUserCart } from "../../ducks/cart";
 
 class Cart extends Component {
+  constructor(props) {
+    super(props);
+    this.handelClick = this.handelClick.bind(this);
+  }
   componentDidMount() {
-    // axios.get(`/api/Cart`).then(results => {
-    //   console.log(results, "sdfsdfsdfsdfsfsdfsdfsdfsdfsdf");
-    //   this.setState({
-    //     incart: results.data
-    //   });
-    // });
     this.props.getUserCart();
   }
+
+  handelClick(product) {
+    console.log(product, "a4353453453454354");
+    axios.post(`/api/deletefromcart`, { product }).then(results => {
+      console.log(results.data, "oncl43434cikc");
+      this.props.getUserCart();
+    });
+  }
+
   render() {
     // console.log(this.props.cart);
     return (
@@ -29,6 +36,9 @@ class Cart extends Component {
                 <li>{cart.description}</li>
                 <img src={cart.productimageurl} />
                 <li>{`$${cart.productprice}`}</li>
+                <button onClick={() => this.handelClick(this.props.cart[i])}>
+                  remove from cart{" "}
+                </button>
               </div>
             ))}
         </ul>

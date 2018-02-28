@@ -123,6 +123,17 @@ app.post(`/api/addtocart`, (req, res) => {
     .catch(err => console.log("dsafsdf", err));
 });
 
+app.post(`/api/deletefromcart`, (req, res) => {
+  console.log(req.body.product, "req body tas");
+  req.app
+    .get("db")
+    .deleteProductFromUserCart([req.user.id, req.body.product.id])
+    .then(response => {
+      res.status(200).json(response);
+    })
+    .catch(err => console.log("dsafsdf", err));
+});
+
 //--------------------stripe------------
 
 const configureStripe = require("stripe");

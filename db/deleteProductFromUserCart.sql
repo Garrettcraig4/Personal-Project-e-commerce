@@ -1,0 +1,1 @@
+DELETE FROM usercart WHERE userid = $1 and productids = $2;
