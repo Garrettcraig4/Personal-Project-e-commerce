@@ -77,7 +77,7 @@ passport.use(
 );
 
 passport.serializeUser((user, done) => {
-  console.log(user);
+  console.log(user, "user consolelog");
   done(null, user);
 });
 passport.deserializeUser((user, done) => done(null, user));
@@ -112,6 +112,15 @@ app.get("/api/Cart", (req, res) => {
     });
 });
 
+app.get("/api/GetTotal", (req, res) => {
+  req.app
+    .get("db")
+    .getTotalFromUserCart([req.user.id])
+    .then(response => {
+      res.status(200).json(response);
+    });
+});
+
 app.post(`/api/addtocart`, (req, res) => {
   console.log(req.body.product);
   req.app
@@ -125,6 +134,7 @@ app.post(`/api/addtocart`, (req, res) => {
 
 app.post(`/api/deletefromcart`, (req, res) => {
   console.log(req.body.product, "req body tas");
+
   req.app
     .get("db")
     .deleteProductFromUserCart([req.user.id, req.body.product.id])

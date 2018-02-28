@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 import { getProducts } from "../../ducks/getProducts";
+import swal from "sweetalert";
 
 class Store extends Component {
   constructor(props) {
@@ -15,7 +16,10 @@ class Store extends Component {
   handelClick(product) {
     console.log(product, "adfadfadsfasdfadsfafff");
     axios.post(`/api/addtocart`, { product }).then(results => {
-      console.log(results.data, "onclcikc");
+      console.log(
+        results.data,
+        swal(product.productname, "Was added to your cart")
+      );
     });
   }
 

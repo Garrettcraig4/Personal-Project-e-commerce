@@ -11,6 +11,7 @@ export function getProducts() {
       .catch(err => err.errMessage)
   };
 }
+
 const initialState = {
   products: [],
   isLoading: false,

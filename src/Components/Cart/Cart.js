@@ -3,7 +3,7 @@ import axios from "axios";
 import "./Cart.css";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { getUserCart } from "../../ducks/cart";
+import { getUserCart, getTotalFromUserCart } from "../../ducks/cart";
 
 class Cart extends Component {
   constructor(props) {
@@ -12,6 +12,7 @@ class Cart extends Component {
   }
   componentDidMount() {
     this.props.getUserCart();
+    this.props.getTotalFromUserCart();
   }
 
   handelClick(product) {
@@ -19,11 +20,13 @@ class Cart extends Component {
     axios.post(`/api/deletefromcart`, { product }).then(results => {
       console.log(results.data, "oncl43434cikc");
       this.props.getUserCart();
+      this.props.getTotalFromUserCart();
     });
   }
 
   render() {
-    // console.log(this.props.cart);
+    console.log(this.props);
+
     return (
       <div className="Cart">
         <h1> WELCOME TO YOUR CART </h1>
@@ -43,7 +46,7 @@ class Cart extends Component {
             ))}
         </ul>
 
-        <p> Total: </p>
+        <p> Total: {`$${this.props.total}`} </p>
         <Link to="/Checkout">
           <button> Checkout </button>
         </Link>
@@ -54,8 +57,11 @@ class Cart extends Component {
 
 function mapStateToProps(state) {
   return {
-    cart: state.cart.cart
+    cart: state.cart.cart,
+    total: state.cart.total
   };
 }
 
-export default connect(mapStateToProps, { getUserCart })(Cart);
+export default connect(mapStateToProps, { getUserCart, getTotalFromUserCart })(
+  Cart
+);
