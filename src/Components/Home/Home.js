@@ -24,7 +24,10 @@ class Home extends Component {
       <div className="Home">
         {/* {test} */}
 
-        <h1>Hello Welcome to the Store</h1>
+        <h1>
+          Hello Welcome to garrett's online rolex dealer we make it easy to buy
+          rolex online no instore pickup needed
+        </h1>
       </div>
     );
   }

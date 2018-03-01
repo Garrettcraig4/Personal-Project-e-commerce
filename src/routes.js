@@ -13,6 +13,5 @@ export default (
     <Route component={Auth} path="/Auth" />
     <Route component={Store} path="/Store" />
     <Route component={CheckOut} path="/Checkout" />
-    <Route component={Order} path="/Order" />
   </Switch>
 );

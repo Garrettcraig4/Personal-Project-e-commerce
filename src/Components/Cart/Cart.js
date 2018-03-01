@@ -4,7 +4,7 @@ import "./Cart.css";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { getUserCart, getTotalFromUserCart } from "../../ducks/cart";
-
+import Order from "../Order/Order";
 class Cart extends Component {
   constructor(props) {
     super(props);
@@ -47,9 +47,12 @@ class Cart extends Component {
         </ul>
 
         <p> Total: {`$${this.props.total}`} </p>
-        <Link to="/Checkout">
-          <button> Checkout </button>
-        </Link>
+
+        <Order
+          name={"Garrett's Online Rolex Dealer"}
+          description={"Your Order"}
+          amount={this.props.total}
+        />
       </div>
     );
   }

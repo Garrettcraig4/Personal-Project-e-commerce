@@ -77,7 +77,6 @@ passport.use(
 );
 
 passport.serializeUser((user, done) => {
-  console.log(user, "user consolelog");
   done(null, user);
 });
 passport.deserializeUser((user, done) => done(null, user));
@@ -94,7 +93,6 @@ app.get(
 );
 //----------------auth0----------------
 app.get("/api/Products", (req, res) => {
-  console.log(req, "this is products request");
   req.app
     .get("db")
     .getProductList([req.products])
@@ -122,7 +120,6 @@ app.get("/api/GetTotal", (req, res) => {
 });
 
 app.post(`/api/addtocart`, (req, res) => {
-  console.log(req.body.product);
   req.app
     .get("db")
     .addProductToUserCart([req.user.id, req.body.product.id])
@@ -133,8 +130,6 @@ app.post(`/api/addtocart`, (req, res) => {
 });
 
 app.post(`/api/deletefromcart`, (req, res) => {
-  console.log(req.body.product, "req body tas");
-
   req.app
     .get("db")
     .deleteProductFromUserCart([req.user.id, req.body.product.id])
@@ -150,16 +145,28 @@ const configureStripe = require("stripe");
 
 const stripe = configureStripe(sk_test_MT_SECRET_KEY);
 
-const postStripeCharge = res => (stripeErr, stripeRes) => {
+const postStripeCharge = (res, req) => (stripeErr, stripeRes) => {
   if (stripeErr) {
     res.status(500).send({ error: stripeErr });
   } else {
     res.status(200).send({ success: stripeRes });
+    console.log(req, "this is req");
+    //hhhhhh
+    app
+      .get("db")
+      .addUserOrder([req.body.amount])
+      .then(response => {
+        console.log(response[0].id);
+        app.get("db").finishOrder([response[0].id, req.user.id]);
+
+        // res.status(200).json(response);
+      })
+      .catch(err => console.log("this errrr", err));
   }
 };
 app.post("/api/Pay", (req, res) => {
   console.log("hit the server");
-  stripe.charges.create(req.body, postStripeCharge(res));
+  stripe.charges.create(req.body, postStripeCharge(res, req));
 });
 // const paymentApi = app => {
 //   app.get("/api/Pay", (req, res) => {

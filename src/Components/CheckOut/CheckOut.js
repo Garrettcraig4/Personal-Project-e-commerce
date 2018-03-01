@@ -6,9 +6,6 @@ class CheckOut extends Component {
     return (
       <div className="CheckOut">
         <p> Payment methond </p>
-        <Link to="/Order">
-          <button> Place Order</button>
-        </Link>
       </div>
     );
   }

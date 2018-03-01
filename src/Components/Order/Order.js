@@ -8,6 +8,8 @@ const STRIPE_PLUBLISHABLE = "pk_test_EqUWmF6QnfU1YKr2vzztVLuN";
 const PAYMENT_SERVER_URL = "/api/Pay";
 const CURRENCY = "USD";
 
+// const tempres = JSON.parse(response.request.response.success.success.sourse);
+
 const fromUsdCent = amount => amount * 100;
 
 class Order extends Component {
@@ -28,7 +30,9 @@ class Order extends Component {
         amount: fromUsdCent(amount)
       })
       .then(response => {
-        console.log(response);
+        console.log(JSON.parse(response.request.response), "stripe response");
+        //post request with values
+        // axios.post(.success.success.source.address_city,success.success.source.address_line1,success.success.source.address_state,success.success.source.address_zip,success.success.source.address_country);
       });
   render() {
     const { name, description, amount } = this.props;
@@ -40,6 +44,8 @@ class Order extends Component {
         token={this.onToken(amount, description)}
         currency={CURRENCY}
         stripeKey={STRIPE_PLUBLISHABLE}
+        shippingAddress
+        billingAddress={true}
       />
     );
   }
