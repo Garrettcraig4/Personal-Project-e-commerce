@@ -31,7 +31,7 @@ class Home extends Component {
             buy Rolex online no in store pickup needed
           </h1>
           <div className="homeboxtwo">
-            <p> Why You Should Choose US!</p>
+            <p> Why You Should Choose G.O.R.D!</p>
           </div>
         </div>
         <div className="homeboxthree">

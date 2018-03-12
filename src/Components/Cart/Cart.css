@@ -1,3 +1,6 @@
+.Cart {
+  background-color: #efefef;
+}
 .cartbutton {
   display: inline-block;
   -webkit-box-sizing: content-box;
@@ -28,15 +31,24 @@
 }
 .cartboxtwo {
   background-color: #caebf2;
+  width: 295px;
+  margin-left: 61px;
+  font-size: 25px;
 }
 .cartboxthree {
   background-color: #caebf2;
 }
 .cartboxfour {
   background-color: #caebf2;
+  width: 120px;
+  margin-left: 140px;
+  font-size: 25px;
 }
 .cartboxfive {
   background-color: #caebf2;
+  font-size: 25px;
+  width: 120px;
+  margin-left: 140px;
   font-size: 25px;
 }
 #cartorderh {

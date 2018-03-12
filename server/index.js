@@ -149,24 +149,24 @@ app.post(`/api/deletefromcart`, (req, res) => {
     .catch(err => console.log("dsafsdf", err));
 });
 
-app.post(`/api/adduseraddressinfo`, (req, res) => {
-  console.log(req.body, "this is the req.body on userinfoadd", req.user);
-  req.app
-    .get("db")
-    .addUserAddress([
-      req.body.tempcity,
-      req.body.tempaddress,
-      req.body.tempstate,
-      req.body.tempzip,
-      req.body.tempcountry
-      // app.get("db").addUserOrder()
-      //order id
-    ])
-    .then(response => {
-      res.status(200).json(response);
-    })
-    .catch(console.log);
-});
+// app.post(`/api/adduseraddressinfo`, (req, res) => {
+//   console.log(req.body, "this is the req.body on userinfoadd", req.user);
+//   req.app
+//     .get("db")
+//     .addUserAddress([
+//       req.body.tempcity,
+//       req.body.tempaddress,
+//       req.body.tempstate,
+//       req.body.tempzip,
+//       req.body.tempcountry
+//       // app.get("db").addUserOrder()
+//       //order id
+//     ])
+//     .then(response => {
+//       res.status(200).json(response);
+//     })
+//     .catch(console.log);
+// });
 
 //--------------------stripe------------
 
@@ -182,9 +182,16 @@ const postStripeCharge = (res, req) => (stripeErr, stripeRes) => {
 
     app
       .get("db")
-      .addUserOrder([req.body.amount])
+      .addUserOrder([
+        req.body.amount,
+        stripeRes.source.address_city,
+        stripeRes.source.address_line1,
+        stripeRes.source.address_state,
+        stripeRes.source.address_zip,
+        stripeRes.source.address_country
+      ])
       .then(response => {
-        console.log(response[0].id);
+        console.log(response[0].id, "thisisisisiisisii is id");
         app.get("db").finishOrder([response[0].id, req.user.id]);
 
         // res.status(200).json(response);

@@ -44,13 +44,13 @@ class Order extends Component {
         let tempzip = tempres.address_zip;
         let tempcountry = tempres.address_country;
         //post request with values create new endpoint
-        axios.post("/api/adduseraddressinfo", {
-          tempcity,
-          tempaddress,
-          tempstate,
-          tempzip,
-          tempcountry
-        });
+        // axios.post("/api/adduseraddressinfo", {
+        //   tempcity,
+        //   tempaddress,
+        //   tempstate,
+        //   tempzip,
+        //   tempcountry
+        // });
       });
   render() {
     const { name, description, amount } = this.props;
