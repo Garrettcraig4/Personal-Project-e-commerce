@@ -1,0 +1,38 @@
+.header-container {
+  height: 11.3vh;
+  width: 100%;
+  background-color: #a9a9a9;
+}
+
+.Header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: baseline;
+  align-content: space-between;
+}
+#homelink {
+  background-color: #ff3b3f;
+  text-align: center;
+  width: 60px;
+}
+#storelink {
+  background-color: #ff3b3f;
+  width: 60px;
+}
+#cartlink {
+  background-color: #ff3b3f;
+  width: 60px;
+}
+#login {
+  background-color: #ff3b3f;
+  width: 60px;
+}
+img {
+  width: 50%;
+  hight: auto;
+}
+#title {
+  font-size: 25px;
+}

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
-
+import w from "../../assets/logo-stripe.png";
+import truck from "../../assets/deltruck.png";
+import "./Home.css";
 class Home extends Component {
   // constructor() {
   //   super();
@@ -23,11 +25,23 @@ class Home extends Component {
     return (
       <div className="Home">
         {/* {test} */}
-
-        <h1>
-          Hello Welcome to garrett's online rolex dealer we make it easy to buy
-          rolex online no instore pickup needed
-        </h1>
+        <div className="homeboxone">
+          <h1>
+            Hello Welcome to Garrett's Online Rolex Dealer We make it easy to
+            buy Rolex online no in store pickup needed
+          </h1>
+          <div className="homeboxtwo">
+            <p> Why You Should Choose US!</p>
+          </div>
+        </div>
+        <div className="homeboxthree">
+          <p> EASY CHECKOUT </p>
+        </div>
+        <img src={w} />
+        <div className="homeboxfour">
+          <p> EASY Delivery </p>
+        </div>
+        <img src={truck} />
       </div>
     );
   }

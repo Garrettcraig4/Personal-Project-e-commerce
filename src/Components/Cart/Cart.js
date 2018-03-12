@@ -29,22 +29,27 @@ class Cart extends Component {
 
     return (
       <div className="Cart">
+        <div>
+          <Link to="/OrderHistory">
+            <button> Order History </button>
+          </Link>
+        </div>
         <h1> WELCOME TO YOUR CART </h1>
 
-        <ul>
+        <p>
           {this.props.cart.length > 0 &&
             this.props.cart.map((cart, i) => (
               <div key={i} className="list-item">
-                <li>{cart.id && cart.productname}</li>
-                <li>{cart.description}</li>
+                <h1>{cart.id && cart.productname}</h1>
+                <p>{cart.description}</p>
                 <img src={cart.productimageurl} />
-                <li>{`$${cart.productprice}`}</li>
+                <p>{`$${cart.productprice}`}</p>
                 <button onClick={() => this.handelClick(this.props.cart[i])}>
                   remove from cart{" "}
                 </button>
               </div>
             ))}
-        </ul>
+        </p>
 
         <p> Total: {`$${this.props.total}`} </p>
 

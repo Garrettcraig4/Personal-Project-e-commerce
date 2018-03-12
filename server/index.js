@@ -139,6 +139,25 @@ app.post(`/api/deletefromcart`, (req, res) => {
     .catch(err => console.log("dsafsdf", err));
 });
 
+app.post(`/api/adduseraddressinfo`, (req, res) => {
+  console.log(req.body, "this is the req.body on userinfoadd", req.user);
+  req.app
+    .get("db")
+    .addUserAddress([
+      req.body.tempcity,
+      req.body.tempaddress,
+      req.body.tempstate,
+      req.body.tempzip,
+      req.body.tempcountry
+      // app.get("db").addUserOrder()
+      //order id
+    ])
+    .then(response => {
+      res.status(200).json(response);
+    })
+    .catch(console.log);
+});
+
 //--------------------stripe------------
 
 const configureStripe = require("stripe");

@@ -1,14 +1,12 @@
 import React, { Component } from "react";
 import axios from "axios";
 import StripeCheckout from "react-stripe-checkout";
-
+import swal from "sweetalert";
 //  import STRIPE_PUBLISHABLE from "../../../server/stripe";
 //  import PAYMENT_SERVER_URL from "../../../server/index";
 const STRIPE_PLUBLISHABLE = "pk_test_EqUWmF6QnfU1YKr2vzztVLuN";
 const PAYMENT_SERVER_URL = "/api/Pay";
 const CURRENCY = "USD";
-
-// const tempres = JSON.parse(response.request.response.success.success.sourse);
 
 const fromUsdCent = amount => amount * 100;
 
@@ -30,9 +28,27 @@ class Order extends Component {
         amount: fromUsdCent(amount)
       })
       .then(response => {
-        console.log(JSON.parse(response.request.response), "stripe response");
-        //post request with values
-        // axios.post(.success.success.source.address_city,success.success.source.address_line1,success.success.source.address_state,success.success.source.address_zip,success.success.source.address_country);
+        let newString = JSON.parse(response.request.response);
+        console.log(newString.success.source);
+        console.log(response.request, "stripe response");
+        swal("Order Confirmed , Thank You for Your Purchise  ");
+        let tempres = newString.success.source;
+
+        // console.log(tempres.id, "stripe 2 response");
+
+        let tempcity = tempres.address_city;
+        let tempaddress = tempres.address_line1;
+        let tempstate = tempres.address_state;
+        let tempzip = tempres.address_zip;
+        let tempcountry = tempres.address_country;
+        //post request with values create new endpoint
+        axios.post("/api/adduseraddressinfo", {
+          tempcity,
+          tempaddress,
+          tempstate,
+          tempzip,
+          tempcountry
+        });
       });
   render() {
     const { name, description, amount } = this.props;

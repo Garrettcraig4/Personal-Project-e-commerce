@@ -3,7 +3,7 @@ import axios from "axios";
 import { connect } from "react-redux";
 import { getProducts } from "../../ducks/getProducts";
 import swal from "sweetalert";
-
+import "./Store.css";
 class Store extends Component {
   constructor(props) {
     super(props);
@@ -37,11 +37,12 @@ class Store extends Component {
           {this.props.products.length > 0 &&
             this.props.products.map((products, i) => (
               <div key={i} className="list-item">
-                <li>{products.productname}</li>
+                <h1>{products.productname}</h1>
                 <img src={products.productimageurl} />
-                <li>{products.productdescription}</li>
-                <li>{`$${products.productprice}`}</li>
+                <p>{products.productdescription}</p>
+                <p id="productprice">{`$${products.productprice}`}</p>
                 <button
+                  id="addtocart"
                   onClick={() => this.handelClick(this.props.products[i])}
                 >
                   add to cart
