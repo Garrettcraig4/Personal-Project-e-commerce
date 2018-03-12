@@ -32,24 +32,31 @@ class Store extends Component {
           "OOPS LOOKS LIKE THERE ARE NO PRODUCTS TO DISPLAY COME BACK A LITTLE
           LATER"
         </p> */}
-
-        <ul>
-          {this.props.products.length > 0 &&
-            this.props.products.map((products, i) => (
-              <div key={i} className="list-item">
+        <div className="storeboxzero">
+          <h1> Store</h1>
+        </div>
+        {this.props.products.length > 0 &&
+          this.props.products.map((products, i) => (
+            <div key={i} className="list-item">
+              <div className="storeboxone">
                 <h1>{products.productname}</h1>
-                <img src={products.productimageurl} />
-                <p>{products.productdescription}</p>
-                <p id="productprice">{`$${products.productprice}`}</p>
-                <button
-                  id="addtocart"
-                  onClick={() => this.handelClick(this.props.products[i])}
-                >
-                  add to cart
-                </button>
               </div>
-            ))}
-        </ul>
+              <img src={products.productimageurl} />
+              <div className="storeboxtwo">
+                <p>{products.productdescription}</p>
+              </div>
+              <div className="storeboxthree">
+                <p id="productprice">{`$${products.productprice}`}</p>
+              </div>
+
+              <button
+                id="addtocart"
+                onClick={() => this.handelClick(this.props.products[i])}
+              >
+                add to cart
+              </button>
+            </div>
+          ))}
       </div>
     );
   }

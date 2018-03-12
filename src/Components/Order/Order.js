@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import StripeCheckout from "react-stripe-checkout";
 import swal from "sweetalert";
+import { Redirect } from "react-router-dom";
 //  import STRIPE_PUBLISHABLE from "../../../server/stripe";
 //  import PAYMENT_SERVER_URL from "../../../server/index";
 const STRIPE_PLUBLISHABLE = "pk_test_EqUWmF6QnfU1YKr2vzztVLuN";
@@ -32,6 +33,7 @@ class Order extends Component {
         console.log(newString.success.source);
         console.log(response.request, "stripe response");
         swal("Order Confirmed , Thank You for Your Purchise  ");
+        //redirect or refresh page
         let tempres = newString.success.source;
 
         // console.log(tempres.id, "stripe 2 response");

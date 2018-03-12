@@ -2,6 +2,7 @@ import axios from "axios";
 
 const GETTOTAL = "GETTOTAL";
 const GETUSERCART = "GETUSERCART";
+const GETUSERORDER = "GETUSERORDER";
 
 export function getUserCart() {
   return {
@@ -26,12 +27,23 @@ export function getTotalFromUserCart() {
   };
 }
 
+export function getUserOrder() {
+  return {
+    type: GETUSERORDER,
+    payload: axios
+      .request({ url: `/api/getUserOrder` })
+      .then(response => response.data)
+      .catch(err => err.errMessage)
+  };
+}
+
 const initialState = {
   cart: [],
   isLoading: false,
   didErr: false,
   errMessage: "rip",
-  total: 0
+  total: 0,
+  order: [1, 2]
 };
 
 export default function reducer(state = initialState, action) {
@@ -59,6 +71,21 @@ export default function reducer(state = initialState, action) {
       });
 
     case `${GETTOTAL}_REJECTED`:
+      return Object.assign({}, state, {
+        isLoading: false,
+        didErr: true
+      });
+
+    case `${GETUSERORDER}_PENDING`:
+      return Object.assign({}, state, { isLoading: true });
+
+    case `${GETUSERORDER}_FULFILLED`:
+      return Object.assign({}, state, {
+        isLoading: false,
+        order: action.payload
+      });
+
+    case `${GETUSERORDER}_REJECTED`:
       return Object.assign({}, state, {
         isLoading: false,
         didErr: true

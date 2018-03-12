@@ -39,7 +39,7 @@ class Home extends Component {
         </div>
         <img src={w} />
         <div className="homeboxfour">
-          <p> EASY Delivery </p>
+          <p> FAST Delivery </p>
         </div>
         <img src={truck} />
       </div>

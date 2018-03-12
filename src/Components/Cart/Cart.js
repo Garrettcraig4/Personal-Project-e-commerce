@@ -31,28 +31,41 @@ class Cart extends Component {
       <div className="Cart">
         <div>
           <Link to="/OrderHistory">
-            <button> Order History </button>
+            <button className="cartbutton" id="cartorderh">
+              {" "}
+              Order History{" "}
+            </button>
           </Link>
         </div>
-        <h1> WELCOME TO YOUR CART </h1>
-
+        <div className="cartboxone">
+          <h1> WELCOME TO YOUR CART </h1>
+        </div>
         <p>
           {this.props.cart.length > 0 &&
             this.props.cart.map((cart, i) => (
               <div key={i} className="list-item">
-                <h1>{cart.id && cart.productname}</h1>
-                <p>{cart.description}</p>
+                <div className="cartboxtwo">
+                  <h1>{cart.id && cart.productname}</h1>
+                </div>
+                <div className="cartboxthree">
+                  <p>{cart.description}</p>
+                </div>
                 <img src={cart.productimageurl} />
-                <p>{`$${cart.productprice}`}</p>
-                <button onClick={() => this.handelClick(this.props.cart[i])}>
+                <div className="cartboxfour">
+                  <p>{`$${cart.productprice}`}</p>
+                </div>
+                <button
+                  className="cartbutton"
+                  onClick={() => this.handelClick(this.props.cart[i])}
+                >
                   remove from cart{" "}
                 </button>
               </div>
             ))}
         </p>
-
-        <p> Total: {`$${this.props.total}`} </p>
-
+        <div className="cartboxfive">
+          <p> Total: {`$${this.props.total}`} </p>
+        </div>
         <Order
           name={"Garrett's Online Rolex Dealer"}
           description={"Your Order"}

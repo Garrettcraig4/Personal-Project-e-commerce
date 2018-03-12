@@ -110,6 +110,16 @@ app.get("/api/Cart", (req, res) => {
     });
 });
 
+app.get("/api/GetUserOrder", (req, res) => {
+  req.app
+    .get("db")
+    .getUserOrder([req.user.id])
+    .then(response => {
+      console.log(response, "00000000000000");
+      res.status(200).json(response);
+    });
+});
+
 app.get("/api/GetTotal", (req, res) => {
   req.app
     .get("db")
@@ -169,8 +179,7 @@ const postStripeCharge = (res, req) => (stripeErr, stripeRes) => {
     res.status(500).send({ error: stripeErr });
   } else {
     res.status(200).send({ success: stripeRes });
-    console.log(req, "this is req");
-    //hhhhhh
+
     app
       .get("db")
       .addUserOrder([req.body.amount])
@@ -184,7 +193,6 @@ const postStripeCharge = (res, req) => (stripeErr, stripeRes) => {
   }
 };
 app.post("/api/Pay", (req, res) => {
-  console.log("hit the server");
   stripe.charges.create(req.body, postStripeCharge(res, req));
 });
 // const paymentApi = app => {

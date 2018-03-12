@@ -17,15 +17,14 @@ class Header extends Component {
               Home
             </button>
           </Link>
-          <h1 id="title"> G.O.R.D. </h1>
+
           <Link to="/Store">
             <button id="storelink">
-              {" "}
               <img src={storeicon} />
               Store
             </button>
           </Link>
-
+          <h1 id="title"> G.O.R.D. </h1>
           <Link to="/Cart">
             <button id="cartlink">
               <img src={carticon} />
@@ -34,9 +33,7 @@ class Header extends Component {
           </Link>
 
           <Link to="/Auth">
-            {" "}
             <button id="login">
-              {" "}
               <img src={loginicon} />
               Login
             </button>
