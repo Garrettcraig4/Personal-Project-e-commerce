@@ -46,3 +46,23 @@ figure {
   width: 120px;
   margin-left: 140px;
 }
+@media all and (max-width: 1800px) {
+}
+@media all and (max-width: 1200px) {
+}
+@media all and (max-width: 900px) {
+}
+@media all and (min-width: 600px) {
+  .homeboxthree {
+    background-color: #caebf2;
+    font-size: 25px;
+    width: 190px;
+    margin-left: 210px;
+  }
+  .homeboxfour {
+    background-color: #caebf2;
+    font-size: 25px;
+    width: 190px;
+    margin-left: 210px;
+  }
+}

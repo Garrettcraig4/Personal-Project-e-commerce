@@ -41,7 +41,9 @@ class Store extends Component {
               <div className="storeboxone">
                 <h1>{products.productname}</h1>
               </div>
-              <img src={products.productimageurl} />
+
+              <img className="storeimg" src={products.productimageurl} />
+
               <div className="storeboxtwo">
                 <p>{products.productdescription}</p>
               </div>

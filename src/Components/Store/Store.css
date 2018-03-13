@@ -23,6 +23,14 @@
   position: relative;
   bottom: 10px;
 }
+@keyframes zoom {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 50%;
+  }
+}
 .Store {
   background-color: #efefef;
   margin-top: -22px;
@@ -55,4 +63,37 @@
   border-width: 3px;
   border-style: dotted;
   border-color: #ff3b3f;
+}
+.storeimg {
+  animation-name: zoom;
+  animation-duration: 2s;
+}
+
+@media all and (max-width: 1800px) {
+}
+@media all and (max-width: 1200px) {
+}
+@media all and (max-width: 900px) {
+}
+@media all and (min-width: 600px) {
+  .storeboxzero {
+    background-color: #caebf2;
+    font-size: 30px;
+    width: 180px;
+    margin-left: 220px;
+  }
+  .storeboxone {
+    background-color: #caebf2;
+    font-size: 25px;
+    width: 250px;
+    margin-left: 170px;
+    word-wrap: normal;
+  }
+  .storeboxthree {
+    background-color: #caebf2;
+    font-size: 20px;
+    width: 120px;
+    margin-left: 250px;
+    font-size: 30px;
+  }
 }

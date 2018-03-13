@@ -31,7 +31,7 @@
 }
 img {
   width: 50%;
-  hight: auto;
+  /* height: auto; */
 }
 #title {
   font-size: 30px;
