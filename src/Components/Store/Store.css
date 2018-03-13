@@ -34,18 +34,18 @@
 .Store {
   background-color: #efefef;
   margin-top: -22px;
+  width: 100%;
 }
 .storeboxzero {
   background-color: #caebf2;
   font-size: 20px;
-  width: 120px;
-  margin-left: 140px;
+  width: 100%;
 }
 .storeboxone {
   background-color: #caebf2;
   font-size: 20px;
-  width: 250px;
-  margin-left: 80px;
+  width: 100%;
+
   word-wrap: break-word;
 }
 .storeboxtwo {
@@ -55,8 +55,8 @@
 .storeboxthree {
   background-color: #caebf2;
   font-size: 20px;
-  width: 120px;
-  margin-left: 140px;
+  width: 100%;
+
   font-size: 25px;
 }
 .list-item {
@@ -69,31 +69,164 @@
   animation-duration: 2s;
 }
 
-@media all and (max-width: 1800px) {
-}
-@media all and (max-width: 1200px) {
-}
-@media all and (max-width: 900px) {
-}
-@media all and (min-width: 600px) {
+@media only screen and (min-width: 1650px) {
+  .Store {
+    margin-top: -46px;
+  }
   .storeboxzero {
     background-color: #caebf2;
-    font-size: 30px;
-    width: 180px;
-    margin-left: 220px;
+    font-size: 35px;
+    width: 100%;
   }
   .storeboxone {
     background-color: #caebf2;
     font-size: 25px;
-    width: 250px;
-    margin-left: 170px;
+    width: 100%;
+
+    word-wrap: normal;
+  }
+  .storeboxtwo {
+    width: 600px;
+    height: 300px;
+    margin-left: 230px;
+    margin-top: -620px;
+    border-width: 5px;
+    border-style: solid;
+    font-size: 18px;
+    margin-bottom: 120px;
+  }
+  .storeboxthree {
+    background-color: #caebf2;
+    width: 170px;
+    margin-left: 455px;
+    margin-top: -40px;
+    margin-bottom: 80px;
+    font-size: 40px;
+  }
+  .storeimg {
+    width: 30%;
+    margin-left: 800px;
+  }
+  #addtocart {
+    width: 240px;
+    height: 50px;
+    font-size: 25px;
+  }
+}
+@media only screen and (min-width: 1200px) and (max-width: 1650px) {
+  .Store {
+    margin-top: -46px;
+  }
+  .storeboxzero {
+    background-color: #caebf2;
+    font-size: 35px;
+    width: 100%;
+    text-align: center;
+  }
+  .storeboxone {
+    background-color: #caebf2;
+    font-size: 25px;
+    width: 100%;
+
+    word-wrap: normal;
+  }
+  .storeboxtwo {
+    width: 600px;
+    height: 300px;
+    margin-left: 120px;
+    margin-top: -440px;
+    border-width: 5px;
+    border-style: solid;
+    font-size: 18px;
+    margin-bottom: 70px;
+  }
+  .storeboxthree {
+    background-color: #caebf2;
+    width: 150px;
+    margin-left: 365px;
+    margin-top: -20px;
+    font-size: 35px;
+  }
+  .storeimg {
+    width: 30%;
+    margin-left: 800px;
+  }
+  #addtocart {
+    width: 160px;
+    height: 40px;
+    font-size: 25px;
+  }
+}
+@media only screen and (min-width: 895px) and (max-width: 1200px) {
+  .storeboxzero {
+    background-color: #caebf2;
+    font-size: 30px;
+    text-align: center;
+  }
+  .storeboxone {
+    background-color: #caebf2;
+    font-size: 25px;
+    width: 100%;
+
+    word-wrap: normal;
+  }
+  .storeboxtwo {
+    width: 730px;
+    margin-left: 90px;
+    border-width: 5px;
+    border-style: solid;
+  }
+  .storeboxthree {
+    background-color: #caebf2;
+    font-size: 20px;
+    width: 100%;
+    font-size: 30px;
+  }
+  img {
+    width: 40%;
+  }
+  #addtocart {
+    width: 160px;
+    height: 40px;
+    font-size: 25px;
+  }
+}
+@media only screen and (min-width: 750px) and (max-width: 895px) {
+  .storeboxzero {
+    background-color: #caebf2;
+  }
+  .storeboxone {
+    background-color: #caebf2;
+    font-size: 25px;
+    width: 100%;
+
     word-wrap: normal;
   }
   .storeboxthree {
     background-color: #caebf2;
     font-size: 20px;
-    width: 120px;
-    margin-left: 250px;
+    width: 100%;
+    font-size: 30px;
+  }
+}
+@media only screen and (min-width: 600px) and (max-width: 750px) {
+  .storeboxzero {
+    background-color: #caebf2;
+    font-size: 30px;
+    width: 100%;
+  }
+  .storeboxone {
+    background-color: #caebf2;
+    font-size: 25px;
+    width: 100%;
+
+    word-wrap: normal;
+  }
+  .storeboxthree {
+    background-color: #caebf2;
+    font-size: 20px;
+    width: 100%;
+
     font-size: 30px;
   }
 }
