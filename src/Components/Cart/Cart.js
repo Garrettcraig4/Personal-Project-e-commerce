@@ -40,7 +40,7 @@ class Cart extends Component {
         <div className="cartboxone">
           <h1> WELCOME TO YOUR CART </h1>
         </div>
-        <p>
+        <p className="itemofcart">
           {this.props.cart.length > 0 &&
             this.props.cart.map((cart, i) => (
               <div key={i} className="list-item">
@@ -50,7 +50,7 @@ class Cart extends Component {
                 <div className="cartboxthree">
                   <p>{cart.description}</p>
                 </div>
-                <img src={cart.productimageurl} />
+                <img className="cartimg" src={cart.productimageurl} />
                 <div className="cartboxfour">
                   <p>{`$${cart.productprice}`}</p>
                 </div>
@@ -66,6 +66,7 @@ class Cart extends Component {
         <div className="cartboxfive">
           <p> Total: {`$${this.props.total}`} </p>
         </div>
+
         <Order
           name={"Garrett's Online Rolex Dealer"}
           description={"Your Order"}

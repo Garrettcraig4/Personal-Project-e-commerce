@@ -64,7 +64,12 @@ class Order extends Component {
         stripeKey={STRIPE_PLUBLISHABLE}
         shippingAddress
         billingAddress={true}
-      />
+      >
+        <button className="cartbutton" id="checkoutbutton" className="button">
+          {" "}
+          Check Out
+        </button>
+      </StripeCheckout>
     );
   }
 }
