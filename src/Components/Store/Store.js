@@ -35,30 +35,32 @@ class Store extends Component {
         <div className="storeboxzero">
           <h1> Store</h1>
         </div>
-        {this.props.products.length > 0 &&
-          this.props.products.map((products, i) => (
-            <div key={i} className="list-item">
-              <div className="storeboxone">
-                <h1>{products.productname}</h1>
-              </div>
+        <p className="itemofstore">
+          {this.props.products.length > 0 &&
+            this.props.products.map((products, i) => (
+              <div key={i} className="list-item">
+                <div className="storeboxone">
+                  <h1>{products.productname}</h1>
+                </div>
 
-              <img className="storeimg" src={products.productimageurl} />
+                <img className="storeimg" src={products.productimageurl} />
 
-              <div className="storeboxtwo">
-                <p>{products.productdescription}</p>
-              </div>
-              <div className="storeboxthree">
-                <p id="productprice">{`$${products.productprice}`}</p>
-              </div>
+                <div className="storeboxtwo">
+                  <p>{products.productdescription}</p>
+                </div>
+                <div className="storeboxthree">
+                  <p id="productprice">{`$${products.productprice}`}</p>
+                </div>
 
-              <button
-                id="addtocart"
-                onClick={() => this.handelClick(this.props.products[i])}
-              >
-                add to cart
-              </button>
-            </div>
-          ))}
+                <button
+                  id="addtocart"
+                  onClick={() => this.handelClick(this.props.products[i])}
+                >
+                  add to cart
+                </button>
+              </div>
+            ))}
+        </p>
       </div>
     );
   }

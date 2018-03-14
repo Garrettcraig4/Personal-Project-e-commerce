@@ -10,7 +10,7 @@
   border-radius: 2px;
   font: normal 18px / normal "Quantico", Helvetica, sans-serif;
   color: rgba(255, 255, 255, 0.9);
-  -o-text-overflow: class= "support css-value" >clip;
+  -o-text-overflow: clip;
   text-overflow: clip;
   background: #ff3b3f;
   -webkit-box-shadow: 1px 1px 0 0 #ff3b3f;
@@ -31,6 +31,7 @@
     width: 50%;
   }
 }
+
 .Store {
   background-color: #efefef;
   margin-top: -22px;
@@ -70,8 +71,31 @@
 }
 
 @media only screen and (min-width: 1650px) {
+  @keyframes zoom-desktop {
+    from {
+      width: 0%;
+    }
+    to {
+      width: 20%;
+    }
+  }
+
+  .itemofstore {
+    display: flex;
+
+    flex-direction: row;
+
+    flex-wrap: wrap;
+
+    justify-content: space-around;
+
+    align-items: center;
+
+    align-content: space-around;
+    width: 100%;
+    height: auto;
+  }
   .Store {
-    margin-top: -46px;
   }
   .storeboxzero {
     background-color: #caebf2;
@@ -86,42 +110,61 @@
     word-wrap: normal;
   }
   .storeboxtwo {
-    width: 600px;
-    height: 300px;
-    margin-left: 230px;
-    margin-top: -620px;
-    border-width: 5px;
-    border-style: solid;
     font-size: 18px;
-    margin-bottom: 120px;
+    border-width: 2px;
+    border-style: solid;
   }
   .storeboxthree {
     background-color: #caebf2;
-    width: 170px;
-    margin-left: 455px;
-    margin-top: -40px;
-    margin-bottom: 80px;
-    font-size: 40px;
+    width: 100%;
+
+    font-size: 30px;
   }
   .storeimg {
-    width: 30%;
-    margin-left: 800px;
+    width: 20%;
+    animation-name: zoom-desktop;
+    animation-duration: 2s;
   }
   #addtocart {
     width: 240px;
     height: 50px;
     font-size: 25px;
   }
+  .list-item {
+    width: 40%;
+  }
 }
 @media only screen and (min-width: 1200px) and (max-width: 1650px) {
+  @keyframes zoom-desktop {
+    from {
+      width: 0%;
+    }
+    to {
+      width: 20%;
+    }
+  }
+
+  .itemofstore {
+    display: flex;
+
+    flex-direction: row;
+
+    flex-wrap: wrap;
+
+    justify-content: space-around;
+
+    align-items: center;
+
+    align-content: space-around;
+    width: 100%;
+    height: auto;
+  }
   .Store {
-    margin-top: -46px;
   }
   .storeboxzero {
     background-color: #caebf2;
     font-size: 35px;
     width: 100%;
-    text-align: center;
   }
   .storeboxone {
     background-color: #caebf2;
@@ -131,33 +174,39 @@
     word-wrap: normal;
   }
   .storeboxtwo {
-    width: 600px;
-    height: 300px;
-    margin-left: 120px;
-    margin-top: -440px;
-    border-width: 5px;
-    border-style: solid;
     font-size: 18px;
-    margin-bottom: 70px;
+    border-width: 2px;
+    border-style: solid;
   }
   .storeboxthree {
     background-color: #caebf2;
-    width: 150px;
-    margin-left: 365px;
-    margin-top: -20px;
-    font-size: 35px;
+    width: 100%;
+
+    font-size: 30px;
   }
   .storeimg {
-    width: 30%;
-    margin-left: 800px;
+    width: 20%;
+    animation-name: zoom-desktop;
+    animation-duration: 2s;
   }
   #addtocart {
-    width: 160px;
-    height: 40px;
+    width: 240px;
+    height: 50px;
     font-size: 25px;
+  }
+  .list-item {
+    width: 40%;
   }
 }
 @media only screen and (min-width: 895px) and (max-width: 1200px) {
+  @keyframes zoom-tab {
+    from {
+      width: 0%;
+    }
+    to {
+      width: 40%;
+    }
+  }
   .storeboxzero {
     background-color: #caebf2;
     font-size: 30px;
@@ -182,8 +231,10 @@
     width: 100%;
     font-size: 30px;
   }
-  img {
+  .storeimg {
     width: 40%;
+    animation-name: zoom-tab;
+    animation-duration: 2s;
   }
   #addtocart {
     width: 160px;

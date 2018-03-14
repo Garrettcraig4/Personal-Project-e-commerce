@@ -1,28 +1,6 @@
-figure {
-  margin: 0;
-  overflow: hidden;
-}
-
-.image-wrapper {
-  width: calc(100% - 8px);
-  max-width: 300px;
-  margin-bottom: 8px;
-}
-/* 
-@media (min-width: 768px) {
-  .image-wrapper {
-    width: calc(50% - 6px);
-  }
-}
-
-@media (min-width: 968px) {
-  .image-wrapper {
-    width: calc(25% - 6px);
-  }
-} */
 .Home {
   background-color: #efefef;
-  height: 700px;
+  height: auto;
   margin-top: -25px;
 }
 .homeboxone {
@@ -37,32 +15,103 @@ figure {
 .homeboxthree {
   background-color: #caebf2;
   font-size: 20px;
-  width: 120px;
-  margin-left: 140px;
+  width: 100%;
 }
 .homeboxfour {
   background-color: #caebf2;
   font-size: 20px;
-  width: 120px;
-  margin-left: 140px;
+  width: 100%;
 }
-@media all and (min-width: 1800px) {
+.homeboxfive {
+  background-color: #caebf2;
+  font-size: 20px;
+  width: 100%;
 }
-@media all and (min-width: 1200px) {
+@media only screen and (min-width: 1650px) {
+  .homeboxone {
+    font-size: 26px;
+  }
+  .homeboxtwo {
+    font-size: 45px;
+  }
+  .homeboxthree {
+    font-size: 35px;
+  }
+  .homeboxfour {
+    font-size: 35px;
+  }
+  .homeboxfive {
+    font-size: 35px;
+  }
+  .homeimg {
+    width: 20%;
+  }
 }
-@media all and (min-width: 750px) {
+@media only screen and (min-width: 1200px) and (max-width: 1650px) {
+  .homeboxone {
+    font-size: 23px;
+  }
+  .homeboxtwo {
+    font-size: 45px;
+  }
+  .homeboxthree {
+    font-size: 35px;
+  }
+  .homeboxfour {
+    font-size: 35px;
+  }
+  .homeboxfive {
+    font-size: 35px;
+  }
+  .homeimg {
+    width: 30%;
+  }
 }
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 895px) and (max-width: 1200px) {
+  .homeboxone {
+    font-size: 23px;
+  }
+  .homeboxtwo {
+    font-size: 45px;
+  }
+  .homeboxthree {
+    font-size: 35px;
+  }
+  .homeboxfour {
+    font-size: 35px;
+  }
+  .homeboxfive {
+    font-size: 35px;
+  }
+}
+@media only screen and (min-width: 750px) and (max-width: 895px) {
+  .homeboxone {
+    font-size: 23px;
+  }
+  .homeboxtwo {
+    font-size: 40px;
+  }
+  .homeboxthree {
+    font-size: 25px;
+  }
+  .homeboxfour {
+    font-size: 25px;
+  }
+  .homeboxfive {
+    font-size: 25px;
+  }
+}
+@media only screen and (min-width: 600px) and (max-width: 750px) {
   .homeboxthree {
     background-color: #caebf2;
     font-size: 25px;
-    width: 190px;
-    margin-left: 210px;
   }
   .homeboxfour {
     background-color: #caebf2;
     font-size: 25px;
-    width: 190px;
-    margin-left: 210px;
+  }
+  .homeboxfive {
+    background-color: #caebf2;
+    font-size: 25px;
   }
 }

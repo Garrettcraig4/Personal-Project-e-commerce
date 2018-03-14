@@ -7,6 +7,7 @@ import Store from "./Components/Store/Store";
 import CheckOut from "./Components/CheckOut/CheckOut";
 import Order from "./Components/Order/Order";
 import Orderhistory from "./Components/Orderhistory/Orderhistory";
+import About from "./Components/About/About";
 export default (
   <Switch>
     <Route component={Home} exact path="/" />
@@ -15,5 +16,6 @@ export default (
     <Route component={Store} path="/Store" />
     <Route component={CheckOut} path="/Checkout" />
     <Route component={Orderhistory} path="/OrderHistory" />
+    <Route component={About} path="/About" />
   </Switch>
 );

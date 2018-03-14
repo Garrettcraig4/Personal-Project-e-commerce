@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { getUserCart, getTotalFromUserCart } from "../../ducks/cart";
 import Order from "../Order/Order";
+import historyicon from "../../assets/noun_281242_cc.png";
 class Cart extends Component {
   constructor(props) {
     super(props);
@@ -32,8 +33,8 @@ class Cart extends Component {
         <div>
           <Link to="/OrderHistory">
             <button className="cartbutton" id="cartorderh">
-              {" "}
-              Order History{" "}
+              {/* <img className="historyicon" src={historyicon} /> */}
+              Order History
             </button>
           </Link>
         </div>
