@@ -3,13 +3,18 @@ import axios from "axios";
 const GETTOTAL = "GETTOTAL";
 const GETUSERCART = "GETUSERCART";
 const GETUSERORDER = "GETUSERORDER";
-
+const GETUSER = "GETUSER";
 export function getUserCart() {
+  console.log("fired");
   return {
     type: GETUSERCART,
     payload: axios
       .request({ url: `/api/Cart` })
-      .then(response => response.data)
+      .then(response => {
+        console.log(response.data, "usuer acar tad at ");
+        return response.data;
+      })
+
       .catch(err => err.errMessage)
   };
 }
@@ -36,14 +41,24 @@ export function getUserOrder() {
       .catch(err => err.errMessage)
   };
 }
-
+export function getUser() {
+  console.log("hit");
+  return {
+    type: GETUSER,
+    payload: axios.get("/api/getUser").then(response => response.data)
+    //     .request({ url: `/api/getUser` })
+    //     .then(response => response.data)
+    //     .catch(err => err.errMessage)
+  };
+}
 const initialState = {
   cart: [],
   isLoading: false,
   didErr: false,
   errMessage: "rip",
   total: 0,
-  order: [1, 2]
+  order: [],
+  user: ["none"]
 };
 
 export default function reducer(state = initialState, action) {
@@ -54,7 +69,8 @@ export default function reducer(state = initialState, action) {
     case `${GETUSERCART}_FULFILLED`:
       return Object.assign({}, state, {
         isLoading: false,
-        cart: action.payload
+        cart: action.payload.response,
+        user: action.payload.requ.name
       });
     case `${GETUSERCART}_REJECTED`:
       return Object.assign({}, state, {
@@ -86,6 +102,23 @@ export default function reducer(state = initialState, action) {
       });
 
     case `${GETUSERORDER}_REJECTED`:
+      return Object.assign({}, state, {
+        isLoading: false,
+        didErr: true
+      });
+
+    case `${GETUSER}_PENDING`:
+      return Object.assign({}, state, { isLoading: true });
+
+    case `${GETUSER}_FULFILLED`:
+      console.log(action.payload.length);
+      return Object.assign({}, state, {
+        isLoading: false,
+        user: action.payload.name
+      });
+
+    case `${GETUSER}_REJECTED`:
+      console.log("rejected hit");
       return Object.assign({}, state, {
         isLoading: false,
         didErr: true

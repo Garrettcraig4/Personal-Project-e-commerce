@@ -35,7 +35,7 @@ class Store extends Component {
         <div className="storeboxzero">
           <h1> Store</h1>
         </div>
-        <p className="itemofstore">
+        <div className="itemofstore">
           {this.props.products.length > 0 &&
             this.props.products.map((products, i) => (
               <div key={i} className="list-item">
@@ -60,7 +60,7 @@ class Store extends Component {
                 </button>
               </div>
             ))}
-        </p>
+        </div>
       </div>
     );
   }

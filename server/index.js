@@ -84,7 +84,7 @@ passport.deserializeUser((user, done) => done(null, user));
 app.get(
   "/Auth",
   passport.authenticate("auth0", {
-    successRedirect: "http://localhost:3000/Cart",
+    successRedirect: "http://localhost:3000/Store",
     failureRedirect: "http://localhost:3000/Auth"
   })
   // (req, res) => {
@@ -106,7 +106,8 @@ app.get("/api/Cart", (req, res) => {
     .get("db")
     .getUserCart([req.user.id])
     .then(response => {
-      res.status(200).json(response);
+      let resanduser = { response, requ: req.user };
+      res.status(200).json(resanduser);
     });
 });
 
@@ -118,6 +119,12 @@ app.get("/api/GetUserOrder", (req, res) => {
       console.log(response, "00000000000000");
       res.status(200).json(response);
     });
+});
+
+app.get("/api/getUser", (req, res, next) => {
+  console.log("get user heres req.user", req.user);
+
+  res.status(200).json(req.user);
 });
 
 app.get("/api/GetTotal", (req, res) => {

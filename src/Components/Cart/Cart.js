@@ -3,7 +3,7 @@ import axios from "axios";
 import "./Cart.css";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { getUserCart, getTotalFromUserCart } from "../../ducks/cart";
+import { getUserCart, getTotalFromUserCart, getUser } from "../../ducks/cart";
 import Order from "../Order/Order";
 import historyicon from "../../assets/noun_281242_cc.png";
 class Cart extends Component {
@@ -12,8 +12,11 @@ class Cart extends Component {
     this.handelClick = this.handelClick.bind(this);
   }
   componentDidMount() {
-    this.props.getUserCart();
-    this.props.getTotalFromUserCart();
+    this.props.getUser();
+    if (this.props.user[0] !== "none") {
+      this.props.getUserCart();
+      this.props.getTotalFromUserCart();
+    }
   }
 
   handelClick(product) {
@@ -79,12 +82,16 @@ class Cart extends Component {
 }
 
 function mapStateToProps(state) {
+  console.log(state);
   return {
     cart: state.cart.cart,
-    total: state.cart.total
+    total: state.cart.total,
+    user: state.cart.user
   };
 }
 
-export default connect(mapStateToProps, { getUserCart, getTotalFromUserCart })(
-  Cart
-);
+export default connect(mapStateToProps, {
+  getUserCart,
+  getTotalFromUserCart,
+  getUser
+})(Cart);

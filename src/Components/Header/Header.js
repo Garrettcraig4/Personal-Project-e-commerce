@@ -6,7 +6,19 @@ import noun_354335_cc from "../../assets/noun_354225_cc.png";
 import storeicon from "../../assets/noun_512408_cc.png";
 import carticon from "../../assets/noun_462143_cc.png";
 import loginicon from "../../assets/noun_489250_cc.png";
+import { connect } from "react-redux";
+import getCart from "../../ducks/index";
+import { getUserCart, getUser } from "../../ducks/cart";
 class Header extends Component {
+  constructor(props) {
+    super(props);
+  }
+  componentDidMount() {
+    this.props.getUser();
+    if (this.props.user[0] !== "none") {
+      this.props.getUserCart();
+    }
+  }
   render() {
     return (
       <div className="header-container">
@@ -39,8 +51,18 @@ class Header extends Component {
             </button>
           </Link>
         </div>
+        <div />
+        <p>{this.props.user}</p>
       </div>
     );
   }
 }
-export default Header;
+function mapStateToProps(state) {
+  return {
+    user: state.cart.user
+  };
+}
+
+export default connect(mapStateToProps, { getCart, getUserCart, getUser })(
+  Header
+);
