@@ -13,6 +13,8 @@ const port = process.env.PORT || 3001;
 
 const app = express();
 
+app.use(express.static(`${__dirname}/../build`));
+
 const {
   CONNECTION_STRING,
   DOMAIN,
@@ -95,8 +97,8 @@ passport.deserializeUser((user, done) => done(null, user));
 app.get(
   "/Auth",
   passport.authenticate("auth0", {
-    successRedirect: "http://localhost:3000/Store",
-    failureRedirect: "http://localhost:3000/Auth"
+    successRedirect: "/Store",
+    failureRedirect: "/Auth"
   })
   // (req, res) => {
   //   res.redirect(`http://localhost:3000/UserInfo/${req.user.username}`);
@@ -264,6 +266,10 @@ app.post("/api/Pay", (req, res) => {
 //   });
 
 //-------------------stripe---------------
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../build/index.html"));
+});
 
 app.listen(port, () => {
   console.log(`server is listening on port  ${port}`);
