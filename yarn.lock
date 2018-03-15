@@ -4353,6 +4353,10 @@ node-pre-gyp@^0.6.39:
     tar "^2.2.1"
     tar-pack "^3.4.0"
 
+nodemailer@^4.6.3:
+  version "4.6.3"
+  resolved "https://registry.yarnpkg.com/nodemailer/-/nodemailer-4.6.3.tgz#c3b7e97fb72f46d4a475c406a15ed23a45dbcddc"
+
 nopt@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/nopt/-/nopt-4.0.1.tgz#d0d4685afd5415193c8c7505602d0d17cd64474d"

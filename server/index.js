@@ -8,7 +8,7 @@ const massive = require("massive");
 const test = require("../server/controllers/test");
 const Auth0Strategy = require("passport-auth0");
 const path = require("path");
-
+const nodemailer = require("nodemailer");
 const port = process.env.PORT || 3001;
 
 const app = express();
@@ -21,7 +21,9 @@ const {
   SESSION_SECRET,
   PAYMENT_SERVER_URL,
   STRIPE_PLUBLISHABLE,
-  sk_test_MT_SECRET_KEY
+  sk_test_MT_SECRET_KEY,
+  SENDMAIL,
+  SENDPASS
 } = process.env;
 
 massive(process.env.CONNECTION_STRING).then(db => {
@@ -40,6 +42,15 @@ app.use(
     }
   })
 );
+//---------- node mailer --------------
+
+var transporter = nodemailer.createTransport(
+  `smtps://${SENDMAIL}:${SENDPASS}@smtp.gmail.com`
+);
+
+// setup e-mail data with unicode symbols
+
+//---------- node mailer --------------
 //----------------------auth0-------------
 app.use(passport.initialize());
 app.use(passport.session());
@@ -202,6 +213,41 @@ const postStripeCharge = (res, req) => (stripeErr, stripeRes) => {
         app.get("db").finishOrder([response[0].id, req.user.id]);
 
         // res.status(200).json(response);
+
+        var mailOptions = {
+          from: `"Garretts Online Rolex Dealer" <${SENDMAIL}>`, // sender address
+          to: `${req.user.email}`, // list of receivers
+          subject: "Your Rolex Order Is Confermed", // Subject line
+          text: "Confermed", // plaintext body
+          html: `<b><h1>Hello ${req.user.name} </h1>
+          <p>Total of Order :${req.body.amount}</p>
+          <h1>Shipping Info<h1>
+             <p>shipping address: ${stripeRes.address_line1} State: ${
+            stripeRes.source.address_state
+          } City: ${stripeRes.source.address_city}
+             </p>       
+  <h1>Card Used</h1>
+  <p>brand: ${stripeRes.source.brand},Last four on card: ${
+            stripeRes.source.last4
+          }, exp mouth and year ${stripeRes.source.exp_month} / ${
+            stripeRes.source.exp_year
+          }
+
+  
+  </p>
+  
+  
+  
+  
+          /b>` // html body
+        };
+
+        transporter.sendMail(mailOptions, function(error, info) {
+          if (error) {
+            return console.log(error);
+          }
+          console.log("Message sent: " + info.response);
+        });
       })
       .catch(err => console.log("this errrr", err));
   }

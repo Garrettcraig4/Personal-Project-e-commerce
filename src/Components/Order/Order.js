@@ -31,7 +31,7 @@ class Order extends Component {
         let newString = JSON.parse(response.request.response);
         console.log(newString.success.source);
         console.log(response.request, "stripe response");
-        swal("Order Confirmed , Thank You for Your Purchise  ");
+        swal("Order Confirmed , Thank You for Your Purchase  ");
         console.log(this.props);
         this.props.history.push(`/OrderHistory`);
         let tempres = newString.success.source;
