@@ -41,3 +41,148 @@ img {
     0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2),
     0 20px 20px rgba(0, 0, 0, 0.15);
 }
+.username {
+  background-color: #caebf2;
+  width: 100%;
+  position: relative;
+  bottom: 21px;
+}
+
+@media only screen and (min-width: 1650px) {
+  #homelink:hover {
+    background: lightblue;
+  }
+  #storelink:hover {
+    background: lightblue;
+  }
+  #cartlink:hover {
+    background: lightblue;
+  }
+  #login:hover {
+    background: lightblue;
+  }
+}
+@media only screen and (min-width: 1200px) and (max-width: 1650px) {
+  #homelink {
+    background-color: #ff3b3f;
+    text-align: center;
+    width: 70px;
+    height: 50px;
+  }
+  #storelink {
+    background-color: #ff3b3f;
+    width: 70px;
+    height: 50px;
+    margin-left: 10px;
+  }
+  #cartlink {
+    background-color: #ff3b3f;
+    width: 70px;
+    height: 50px;
+    margin-left: 10px;
+  }
+  #login {
+    background-color: #ff3b3f;
+    width: 70px;
+    height: 50px;
+    margin-left: 10px;
+  }
+  .username {
+    width: 20%;
+    margin-left: 80%;
+    margin-top: -2%;
+  }
+  #homelink:hover {
+    background: lightblue;
+  }
+  #storelink:hover {
+    background: lightblue;
+  }
+  #cartlink:hover {
+    background: lightblue;
+  }
+  #login:hover {
+    background: lightblue;
+  }
+}
+@media only screen and (min-width: 895px) and (max-width: 1200px) {
+  #homelink {
+    background-color: #ff3b3f;
+    text-align: center;
+    width: 70px;
+    height: 50px;
+  }
+  #storelink {
+    background-color: #ff3b3f;
+    width: 70px;
+    height: 50px;
+    margin-left: 10px;
+  }
+  #cartlink {
+    background-color: #ff3b3f;
+    width: 70px;
+    height: 50px;
+    margin-left: 10px;
+  }
+  #login {
+    background-color: #ff3b3f;
+    width: 70px;
+    height: 50px;
+    margin-left: 10px;
+  }
+  .username {
+    width: 20%;
+    margin-left: 80%;
+    margin-top: -2%;
+  }
+}
+@media only screen and (min-width: 750px) and (max-width: 895px) {
+  #homelink {
+    background-color: #ff3b3f;
+    text-align: center;
+    width: 70px;
+    height: 50px;
+  }
+  #storelink {
+    background-color: #ff3b3f;
+    width: 70px;
+    height: 50px;
+    margin-left: 10px;
+  }
+  #cartlink {
+    background-color: #ff3b3f;
+    width: 70px;
+    height: 50px;
+    margin-left: 10px;
+  }
+  #login {
+    background-color: #ff3b3f;
+    width: 70px;
+    height: 50px;
+    margin-left: 10px;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 750px) {
+  #homelink {
+    background-color: #ff3b3f;
+    text-align: center;
+    width: 70px;
+    height: 50px;
+  }
+  #storelink {
+    background-color: #ff3b3f;
+    width: 70px;
+    height: 50px;
+  }
+  #cartlink {
+    background-color: #ff3b3f;
+    width: 70px;
+    height: 50px;
+  }
+  #login {
+    background-color: #ff3b3f;
+    width: 70px;
+    height: 50px;
+  }
+}

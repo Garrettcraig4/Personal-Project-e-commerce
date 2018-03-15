@@ -42,7 +42,7 @@ class Cart extends Component {
           </Link>
         </div>
         <div className="cartboxone">
-          <h1> WELCOME TO YOUR CART </h1>
+          <h1> {`${this.props.user}'s Cart`} </h1>
         </div>
         <p className="itemofcart">
           {this.props.cart.length > 0 &&
@@ -68,7 +68,7 @@ class Cart extends Component {
             ))}
         </p>
         <div className="cartboxfive">
-          <p> Total: {`$${this.props.total}`} </p>
+          <p> Total: {`${this.props.total}`} </p>
         </div>
 
         <Order

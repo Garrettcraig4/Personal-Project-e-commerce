@@ -139,6 +139,10 @@
   -o-animation: glowing 1500ms infinite;
   animation: glowing 1500ms infinite;
 }
+.cartimg {
+  animation-name: zoom;
+  animation-duration: 2s;
+}
 
 @media only screen and (min-width: 1650px) {
   .Cart {
@@ -161,10 +165,14 @@
   .cartboxfive {
     font-size: 30px;
   }
-  #cartorderh {
+
+  #cartorderh:hover {
+    background: #caebf2;
   }
   .cartimg {
     width: 20%;
+    animation-name: zoom-desktop;
+    animation-duration: 2s;
   }
   .button {
     width: 230px;
@@ -186,6 +194,14 @@
     align-content: space-around;
     width: 100%;
     height: auto;
+  }
+  .cartbutton:hover {
+    background: #caebf2;
+  }
+  .cartimg:hover {
+    -webkit-transform: scale(3.3);
+    -ms-transform: scale(3.3);
+    transform: scale(3.3);
   }
 }
 
@@ -211,10 +227,13 @@
   .cartboxfive {
     font-size: 30px;
   }
-  #cartorderh {
+  #cartorderh:hover {
+    background: #caebf2;
   }
   .cartimg {
     width: 20%;
+    animation-name: zoom-desktop;
+    animation-duration: 2s;
   }
   .button {
     width: 230px;
@@ -236,6 +255,14 @@
     align-content: space-around;
     width: 100%;
     height: auto;
+  }
+  .cartbutton:hover {
+    background: #caebf2;
+  }
+  .cartimg:hover {
+    -webkit-transform: scale(3.3);
+    -ms-transform: scale(3.3);
+    transform: scale(3.3);
   }
 }
 @media only screen and (min-width: 895px) and (max-width: 1200px) {
@@ -260,6 +287,9 @@
   #cartorderh {
   }
   .cartimg {
+    width: 40%;
+    animation-name: zoom-tab;
+    animation-duration: 2s;
   }
   .button {
     width: 230px;

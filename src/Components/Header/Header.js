@@ -52,7 +52,9 @@ class Header extends Component {
           </Link>
         </div>
         <div />
-        <p>{this.props.user}</p>
+        <p className="username">
+          {this.props.user} <Link to="/Auth"> Not you?? Click Here</Link>
+        </p>
       </div>
     );
   }

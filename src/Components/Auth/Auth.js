@@ -1,8 +1,8 @@
 import React from "react";
-
+import "./Auth.css";
 const Auth = () => {
   return (
-    <div>
+    <div className="auth">
       <a href={process.env.REACT_APP_LOGIN}>
         <button>Login</button>
       </a>

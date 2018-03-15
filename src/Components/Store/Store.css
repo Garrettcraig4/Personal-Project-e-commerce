@@ -133,6 +133,14 @@
   .list-item {
     width: 40%;
   }
+  #addtocart:hover {
+    background: #caebf2;
+  }
+  .storeimg:hover {
+    -webkit-transform: scale(3.3);
+    -ms-transform: scale(3.3);
+    transform: scale(3.3);
+  }
 }
 @media only screen and (min-width: 1200px) and (max-width: 1650px) {
   @keyframes zoom-desktop {
@@ -196,6 +204,14 @@
   }
   .list-item {
     width: 40%;
+  }
+  #addtocart:hover {
+    background: #caebf2;
+  }
+  .storeimg:hover {
+    -webkit-transform: scale(3.3);
+    -ms-transform: scale(3.3);
+    transform: scale(3.3);
   }
 }
 @media only screen and (min-width: 895px) and (max-width: 1200px) {

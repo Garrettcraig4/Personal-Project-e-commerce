@@ -1,0 +1,25 @@
+@keyframes change-background {
+  0% {
+    background: #efefef;
+  }
+  25% {
+    background: #caebf2;
+  }
+  50% {
+    background: #91d0df;
+  }
+  75% {
+    background: #caebf2;
+  }
+  100% {
+    background: #efefef;
+  }
+}
+.auth {
+  height: 100vh;
+
+  animation-name: change-background;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+}
