@@ -15,9 +15,6 @@ class Header extends Component {
   }
   componentDidMount() {
     this.props.getUser();
-    if (this.props.user[0] !== "none") {
-      this.props.getUserCart();
-    }
   }
   render() {
     return (
@@ -52,9 +49,12 @@ class Header extends Component {
           </Link>
         </div>
         <div />
-        <p className="username">
-          {this.props.user} <Link to="/Auth"> Not you?? Click Here</Link>
-        </p>
+        <div className="username">
+          {this.props.user}{" "}
+          <p>
+            <Link to="/Auth"> Not you?? Click Here</Link>
+          </p>
+        </div>
       </div>
     );
   }

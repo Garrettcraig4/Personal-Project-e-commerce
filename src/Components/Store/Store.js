@@ -3,6 +3,7 @@ import axios from "axios";
 import { connect } from "react-redux";
 import { getProducts } from "../../ducks/getProducts";
 import swal from "sweetalert";
+import { getUser } from "../../ducks/cart";
 import "./Store.css";
 class Store extends Component {
   constructor(props) {
@@ -10,19 +11,22 @@ class Store extends Component {
     this.handelClick = this.handelClick.bind(this);
   }
   componentDidMount() {
+    this.props.getUser();
     this.props.getProducts();
   }
 
   handelClick(product) {
-    console.log(product, "adfadfadsfasdfadsfafff");
-    axios.post(`/api/addtocart`, { product }).then(results => {
-      console.log(
-        results.data,
-        swal(product.productname, "Was added to your cart")
-      );
-    });
+    if (this.props.user) {
+      axios.post(`/api/addtocart`, { product }).then(results => {
+        console.log(
+          results.data,
+          swal(product.productname, "Was added to your cart")
+        );
+      });
+    } else {
+      swal("You're Not Logged in");
+    }
   }
-
   render() {
     console.log(this.props.products);
 
@@ -42,7 +46,6 @@ class Store extends Component {
                 <div className="storeboxone">
                   <h1>{products.productname}</h1>
                 </div>
-
                 <img className="storeimg" src={products.productimageurl} />
 
                 <div className="storeboxtwo">
@@ -68,8 +71,9 @@ class Store extends Component {
 
 function mapStateToProps(state) {
   return {
-    products: state.product.products
+    products: state.product.products,
+    user: state.cart.user
   };
 }
 
-export default connect(mapStateToProps, { getProducts })(Store);
+export default connect(mapStateToProps, { getProducts, getUser })(Store);

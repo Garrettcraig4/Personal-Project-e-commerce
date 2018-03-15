@@ -58,7 +58,7 @@ const initialState = {
   errMessage: "rip",
   total: 0,
   order: [],
-  user: ["none"]
+  user: ""
 };
 
 export default function reducer(state = initialState, action) {

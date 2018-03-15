@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { getUserCart, getTotalFromUserCart, getUser } from "../../ducks/cart";
 import Order from "../Order/Order";
 import historyicon from "../../assets/noun_281242_cc.png";
+import swal from "sweetalert";
 class Cart extends Component {
   constructor(props) {
     super(props);
@@ -13,12 +14,15 @@ class Cart extends Component {
   }
   componentDidMount() {
     this.props.getUser();
-    if (this.props.user[0] !== "none") {
+
+    if (this.props.user) {
       this.props.getUserCart();
       this.props.getTotalFromUserCart();
+    } else {
+      swal("You have To Login To Access Cart");
+      this.props.history.push(`/Auth`);
     }
   }
-
   handelClick(product) {
     console.log(product, "a4353453453454354");
     axios.post(`/api/deletefromcart`, { product }).then(results => {

@@ -45,7 +45,8 @@ img {
   background-color: #caebf2;
   width: 100%;
   position: relative;
-  bottom: 21px;
+  bottom: 13px;
+  line-height: 2px;
 }
 
 @media only screen and (min-width: 1650px) {
@@ -90,7 +91,10 @@ img {
   .username {
     width: 20%;
     margin-left: 80%;
+    height: 30px;
     margin-top: -2%;
+    line-height: 1;
+    text-align: center;
   }
   #homelink:hover {
     background: lightblue;
