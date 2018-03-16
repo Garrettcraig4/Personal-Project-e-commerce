@@ -215,32 +215,61 @@ const postStripeCharge = (res, req) => (stripeErr, stripeRes) => {
         app.get("db").finishOrder([response[0].id, req.user.id]);
 
         // res.status(200).json(response);
+        //${req.user.name}
+        //Total of Order :${req.body.amount}
+        //shipping address: ${stripeRes.address_line1} State: ${
+        //stripeRes.source.address_state
+        //} City: ${stripeRes.source.address_city}
+        // <h1>Card Used</h1>//
+        //<p>brand: ${stripeRes.source.brand},Last four on card: ${
+        //stripeRes.source.last4
+        //}, exp mouth and year ${stripeRes.source.exp_month} / ${
+        //stripeRes.source.exp_year
+        //}
+        //
 
         var mailOptions = {
           from: `"Garretts Online Rolex Dealer" <${SENDMAIL}>`, // sender address
           to: `${req.user.email}`, // list of receivers
           subject: "Your Rolex Order Is Confermed", // Subject line
           text: "Confermed", // plaintext body
-          html: `<b><h1>Hello ${req.user.name} </h1>
-          <p>Total of Order :${req.body.amount}</p>
-          <h1>Shipping Info<h1>
-             <p>shipping address: ${stripeRes.address_line1} State: ${
+          html: `<b>
+          <p style="text-align: center;"><span style="font-size: 26pt;">&nbsp;Hello ${
+            req.user.name
+          }&nbsp;</span></p>
+          <p style="text-align: center;">&nbsp;</p>
+          <p style="text-align: center;"><span style="font-size: 20pt;"><strong><em>Your Rolex Order Has been&nbsp;confirmed!</em></strong></span></p>
+          <p style="text-align: left;">&nbsp;</p>
+          <p style="text-align: left;">&nbsp;</p>
+          <p style="text-align: left;"><span style="font-size: 11pt;"><strong><em>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Your Shiping Info :</em></strong></span></p>
+          <p style="text-align: center;"><span style="font-size: 11pt;"><strong><em>shipping address: ${
+            stripeRes.source.address_line1
+          }</em></strong></span></p>
+          <p style="text-align: center;"><span style="font-size: 11pt;"><strong><em>state:  ${
             stripeRes.source.address_state
-          } City: ${stripeRes.source.address_city}
-             </p>       
-  <h1>Card Used</h1>
-  <p>brand: ${stripeRes.source.brand},Last four on card: ${
+          }</em></strong></span></p>
+          <p style="text-align: center;"><span style="font-size: 11pt;"><strong><em>city: ${
+            stripeRes.source.address_city
+          }</em></strong></span></p>
+          <p style="text-align: center;">&nbsp;</p>
+          <p style="text-align: center;">&nbsp;</p>
+          <p style="text-align: center;">&nbsp;</p>
+          <p style="text-align: left;"><span style="font-size: 11pt;"><strong><em>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Card Used:</em></strong></span></p>
+          <p style="text-align: center;"><span style="font-size: 11pt;"><strong><em>brand: ${
+            stripeRes.source.brand
+          }</em></strong></span></p>
+          <p style="text-align: center;"><span style="font-size: 11pt;"><strong><em>Last four on card: ${
             stripeRes.source.last4
-          }, exp mouth and year ${stripeRes.source.exp_month} / ${
-            stripeRes.source.exp_year
-          }
-
-  
-  </p>
-  
-  
-  
-  
+          }</em></strong></span></p>
+          <p style="text-align: center;"><span style="font-size: 11pt;"><strong><em>exp :&nbsp; ${
+            stripeRes.source.exp_month
+          } / ${stripeRes.source.exp_year}</em></strong></span></p>
+          <p style="text-align: center;">&nbsp;</p>
+          <p style="text-align: right;"><span style="font-size: 11pt;"><strong><em>Total:$${
+            req.body.amount
+          }</em></strong></span></p>
+          <p style="text-align: left;">&nbsp;</p>
+  <p>* you will not get charged or receive product  </p>
           /b>` // html body
         };
 

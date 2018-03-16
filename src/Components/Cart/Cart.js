@@ -72,7 +72,7 @@ class Cart extends Component {
             ))}
         </p>
         <div className="cartboxfive">
-          <p> Total: {`${this.props.total}`} </p>
+          <p> Total: ${`${this.props.total}`} </p>
         </div>
 
         <Order

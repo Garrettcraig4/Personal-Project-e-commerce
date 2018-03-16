@@ -18,8 +18,25 @@
 .auth {
   height: 100vh;
 
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
   animation-name: change-background;
   animation-duration: 5s;
   animation-iteration-count: infinite;
   animation-timing-function: ease;
+}
+.authbox {
+  background-color: red;
+  width: 50%;
+  height: 50%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
