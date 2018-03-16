@@ -266,6 +266,13 @@ app.post("/api/Pay", (req, res) => {
 //   });
 
 //-------------------stripe---------------
+//thisss isss the looogoiut
+
+// app.get("/logout", (req, res) => {
+//   req.session.destroy(() => {
+//     res.redirect("http://localhost:3002/");
+//   });
+// });
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../build/index.html"));

@@ -10,6 +10,7 @@ class About extends Component {
         <p>cart by Gurkenkoenig from the Noun Project</p>
         <p>Login by Roselin Christina.S from the Noun Project</p>
         <p>History by Xinh Studio from the Noun Project</p>
+        <p>all Rolex images and branding belongs to Rolex</p>
       </div>
     );
   }
