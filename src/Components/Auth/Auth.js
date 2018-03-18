@@ -4,11 +4,11 @@ const Auth = () => {
   return (
     <div className="auth">
       <div className="authbox">
-        <a className="authbutton" href={process.env.REACT_APP_LOGIN}>
-          <button>Login</button>
+        <a href={process.env.REACT_APP_LOGIN}>
+          <button className="authbutton">Login</button>
         </a>
-        <a className="authbutton" href={process.env.REACT_APP_LOGOUT}>
-          <button> Logout </button>
+        <a href={process.env.REACT_APP_LOGOUT}>
+          <button className="authbutton"> Logout </button>
         </a>
       </div>
     </div>

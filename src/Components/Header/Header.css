@@ -50,6 +50,38 @@ img {
 }
 
 @media only screen and (min-width: 1650px) {
+  #homelink {
+    background-color: #ff3b3f;
+    text-align: center;
+    width: 70px;
+    height: 50px;
+  }
+  #storelink {
+    background-color: #ff3b3f;
+    width: 70px;
+    height: 50px;
+    margin-left: 10px;
+  }
+  #cartlink {
+    background-color: #ff3b3f;
+    width: 70px;
+    height: 50px;
+    margin-left: 10px;
+  }
+  #login {
+    background-color: #ff3b3f;
+    width: 70px;
+    height: 50px;
+    margin-left: 10px;
+  }
+  .username {
+    width: 20%;
+    margin-left: 80%;
+    height: 30px;
+    margin-top: -2%;
+    line-height: 1;
+    text-align: center;
+  }
   #homelink:hover {
     background: lightblue;
   }

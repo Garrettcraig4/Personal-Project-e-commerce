@@ -58,8 +58,6 @@ class Home extends Component {
             <Link to="/About">
               <a> about </a>
             </Link>
-
-            <a>git hub link</a>
           </div>
         </footer>
       </div>

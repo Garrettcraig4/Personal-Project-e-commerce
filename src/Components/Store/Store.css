@@ -34,7 +34,7 @@
 
 .Store {
   background-color: #efefef;
-  margin-top: -22px;
+  margin-top: -27px;
   width: 100%;
 }
 .storeboxzero {
@@ -71,6 +71,10 @@
 }
 
 @media only screen and (min-width: 1650px) {
+  .Store {
+    margin-top: -49px;
+  }
+
   @keyframes zoom-desktop {
     from {
       width: 0%;
@@ -143,6 +147,10 @@
   }
 }
 @media only screen and (min-width: 1200px) and (max-width: 1650px) {
+  .Store {
+    margin-top: -48px;
+  }
+
   @keyframes zoom-desktop {
     from {
       width: 0%;
@@ -167,8 +175,7 @@
     width: 100%;
     height: auto;
   }
-  .Store {
-  }
+
   .storeboxzero {
     background-color: #caebf2;
     font-size: 35px;
@@ -215,6 +222,10 @@
   }
 }
 @media only screen and (min-width: 895px) and (max-width: 1200px) {
+  .Store {
+    margin-top: -41px;
+  }
+
   @keyframes zoom-tab {
     from {
       width: 0%;
@@ -259,6 +270,10 @@
   }
 }
 @media only screen and (min-width: 750px) and (max-width: 895px) {
+  .Store {
+    margin-top: -28px;
+  }
+
   .storeboxzero {
     background-color: #caebf2;
   }
@@ -277,6 +292,10 @@
   }
 }
 @media only screen and (min-width: 600px) and (max-width: 750px) {
+  .Store {
+    margin-top: -42px;
+  }
+
   .storeboxzero {
     background-color: #caebf2;
     font-size: 30px;
