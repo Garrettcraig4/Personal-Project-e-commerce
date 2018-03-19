@@ -5,13 +5,11 @@ const GETUSERCART = "GETUSERCART";
 const GETUSERORDER = "GETUSERORDER";
 const GETUSER = "GETUSER";
 export function getUserCart() {
-  console.log("fired");
   return {
     type: GETUSERCART,
     payload: axios
       .request({ url: `/api/Cart` })
       .then(response => {
-        console.log(response.data, "usuer acar tad at ");
         return response.data;
       })
 
@@ -25,7 +23,6 @@ export function getTotalFromUserCart() {
     payload: axios
       .request({ url: `/api/GetTotal` })
       .then(response => {
-        console.log(response.data[0].sum, "111111111111111111111");
         return response.data[0].sum;
       })
       .catch(err => err.errMessage)
@@ -42,7 +39,6 @@ export function getUserOrder() {
   };
 }
 export function getUser() {
-  console.log("hit");
   return {
     type: GETUSER,
     payload: axios.get("/api/getUser").then(response => response.data)
@@ -111,14 +107,12 @@ export default function reducer(state = initialState, action) {
       return Object.assign({}, state, { isLoading: true });
 
     case `${GETUSER}_FULFILLED`:
-      console.log(action.payload.length);
       return Object.assign({}, state, {
         isLoading: false,
         user: action.payload.name
       });
 
     case `${GETUSER}_REJECTED`:
-      console.log("rejected hit");
       return Object.assign({}, state, {
         isLoading: false,
         didErr: true

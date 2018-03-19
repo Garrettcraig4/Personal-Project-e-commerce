@@ -18,18 +18,13 @@ class Store extends Component {
   handelClick(product) {
     if (this.props.user) {
       axios.post(`/api/addtocart`, { product }).then(results => {
-        console.log(
-          results.data,
-          swal(product.productname, "Was added to your cart")
-        );
+        results.data, swal(product.productname, "Was added to your cart");
       });
     } else {
       swal("You're Not Logged in");
     }
   }
   render() {
-    console.log(this.props.products);
-
     return (
       <div className="Store">
         {/* <p>

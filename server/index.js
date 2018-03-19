@@ -129,14 +129,11 @@ app.get("/api/GetUserOrder", (req, res) => {
     .get("db")
     .getUserOrder([req.user.id])
     .then(response => {
-      console.log(response, "00000000000000");
       res.status(200).json(response);
     });
 });
 
 app.get("/api/getUser", (req, res, next) => {
-  console.log("get user heres req.user", req.user);
-
   res.status(200).json(req.user);
 });
 
@@ -211,7 +208,6 @@ const postStripeCharge = (res, req) => (stripeErr, stripeRes) => {
         stripeRes.source.address_country
       ])
       .then(response => {
-        console.log(response[0].id, "thisisisisiisisii is id");
         app.get("db").finishOrder([response[0].id, req.user.id]);
 
         // res.status(200).json(response);

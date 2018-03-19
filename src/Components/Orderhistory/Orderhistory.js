@@ -10,7 +10,6 @@ class Orderhistory extends Component {
     this.props.getUserOrder();
   }
   render() {
-    console.log(this.props);
     return (
       <div className="Orderhistory">
         <p>Order history!</p>

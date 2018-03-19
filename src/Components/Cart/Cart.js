@@ -24,17 +24,13 @@ class Cart extends Component {
     }
   }
   handelClick(product) {
-    console.log(product, "a4353453453454354");
     axios.post(`/api/deletefromcart`, { product }).then(results => {
-      console.log(results.data, "oncl43434cikc");
       this.props.getUserCart();
       this.props.getTotalFromUserCart();
     });
   }
 
   render() {
-    console.log(this.props);
-
     return (
       <div className="Cart">
         <div>
@@ -86,7 +82,6 @@ class Cart extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state);
   return {
     cart: state.cart.cart,
     total: state.cart.total,
