@@ -33,6 +33,7 @@ class Home extends Component {
             Hello Welcome to Garrett's Online Rolex Dealer We make it easy to
             buy Rolex online no in store pickup needed
           </h1>
+
           <h1>
             <Link to="/Store"> Shop Now! </Link>
           </h1>

@@ -166,6 +166,11 @@ app.post(`/api/deletefromcart`, (req, res) => {
     .catch(err => console.log("dsafsdf", err));
 });
 
+app.get("/api/Logout", (req, res) => {
+  req.session.destroy();
+  res.redirect("/");
+});
+
 // app.post(`/api/adduseraddressinfo`, (req, res) => {
 //   console.log(req.body, "this is the req.body on userinfoadd", req.user);
 //   req.app
