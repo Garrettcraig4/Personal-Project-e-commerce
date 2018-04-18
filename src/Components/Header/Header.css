@@ -9,25 +9,29 @@
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
-  align-items: baseline;
+  align-items: center;
   align-content: space-between;
 }
 #homelink {
   background-color: #ff3b3f;
   text-align: center;
   width: 60px;
+  border-radius: 10px;
 }
 #storelink {
   background-color: #ff3b3f;
   width: 60px;
+  border-radius: 10px;
 }
 #cartlink {
   background-color: #ff3b3f;
   width: 60px;
+  border-radius: 10px;
 }
 #login {
   background-color: #ff3b3f;
   width: 60px;
+  border-radius: 10px;
 }
 img {
   width: 50%;
@@ -55,24 +59,25 @@ img {
     text-align: center;
     width: 70px;
     height: 50px;
+    margin: 10px;
   }
   #storelink {
     background-color: #ff3b3f;
     width: 70px;
     height: 50px;
-    margin-left: 10px;
+    margin: 10px;
   }
   #cartlink {
     background-color: #ff3b3f;
     width: 70px;
     height: 50px;
-    margin-left: 10px;
+    margin: 10px;
   }
   #login {
     background-color: #ff3b3f;
     width: 70px;
     height: 50px;
-    margin-left: 10px;
+    margin: 10px;
   }
   .username {
     width: 20%;
@@ -101,24 +106,25 @@ img {
     text-align: center;
     width: 70px;
     height: 50px;
+    margin: 10px;
   }
   #storelink {
     background-color: #ff3b3f;
     width: 70px;
     height: 50px;
-    margin-left: 10px;
+    margin: 10px;
   }
   #cartlink {
     background-color: #ff3b3f;
     width: 70px;
     height: 50px;
-    margin-left: 10px;
+    margin: 10px;
   }
   #login {
     background-color: #ff3b3f;
     width: 70px;
     height: 50px;
-    margin-left: 10px;
+    margin: 10px;
   }
   .username {
     width: 20%;
@@ -147,24 +153,25 @@ img {
     text-align: center;
     width: 70px;
     height: 50px;
+    margin: 10px;
   }
   #storelink {
     background-color: #ff3b3f;
     width: 70px;
     height: 50px;
-    margin-left: 10px;
+    margin: 10px;
   }
   #cartlink {
     background-color: #ff3b3f;
     width: 70px;
     height: 50px;
-    margin-left: 10px;
+    margin: 10px;
   }
   #login {
     background-color: #ff3b3f;
     width: 70px;
     height: 50px;
-    margin-left: 10px;
+    margin: 10px;
   }
   .username {
     width: 20%;
@@ -178,24 +185,25 @@ img {
     text-align: center;
     width: 70px;
     height: 50px;
+    margin: 10px;
   }
   #storelink {
     background-color: #ff3b3f;
     width: 70px;
     height: 50px;
-    margin-left: 10px;
+    margin: 10px;
   }
   #cartlink {
     background-color: #ff3b3f;
     width: 70px;
     height: 50px;
-    margin-left: 10px;
+    margin: 10px;
   }
   #login {
     background-color: #ff3b3f;
     width: 70px;
     height: 50px;
-    margin-left: 10px;
+    margin: 10px;
   }
 }
 
@@ -205,6 +213,7 @@ img {
     text-align: center;
     width: 70px;
     height: 50px;
+    margin: 10px;
   }
   #storelink {
     background-color: #ff3b3f;
